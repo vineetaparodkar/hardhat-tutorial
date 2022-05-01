@@ -11,15 +11,21 @@ async function main() {
   //
   // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
-  // await hre.run('compile');
+
+  await hre.run("compile");
 
   // We get the contract to deploy
   const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
-
+  const greeter = await Greeter.deploy("initial msg");
   await greeter.deployed();
+  console.log("Contract Address: ",greeter.address);
+  const transactionResponse = await greeter.setGreeting("new msg");
+  const transactionReceipt = await transactionResponse.wait();
+  //console.log(transactionReceipt.events[0]);
+  console.log("LOGGER1: ",transactionReceipt.events[0].args.oldMsg);
+  console.log("LOGGER2: ",transactionReceipt.events[0].args.newMsg);
 
-  console.log("Greeter deployed to:", greeter.address);
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere

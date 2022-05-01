@@ -2,14 +2,36 @@
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+## Commands
+
+1. Compile smart contracts
+
+    `npx hardhat compile`
+
+2. Clean hardhat project==> deletes artifacts folder
+
+    `npx hardhat clean `
+
+3. deploy contracts
+
+    `npx hardhat run scripts/event-log-script.js`
+
+4. deploy and verify contract 
+
+    `npx hardhat run scripts/deploy.js --network polygon`
+
+5. testing contracts
+
+    `npx hardhat test`
+
+6. test coverage
+
+    `npx hardhat coverage --network polygon`
+
+7. estimate gas output saved to file gas-report.txt
+
+    `npx hardhat test`
+
+
+

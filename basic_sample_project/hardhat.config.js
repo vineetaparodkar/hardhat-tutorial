@@ -1,7 +1,11 @@
 require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
+require("@nomiclabs/hardhat-etherscan");
+require("hardhat-gas-reporter");
+require('solidity-coverage');
+require("hardhat-deploy")
 
-const { PRIVATE_KEY, POLYGON_TESTNET_URL } = process.env;
+const { PRIVATE_KEY, POLYGON_TESTNET_URL, POLYSCAN_API_KEY, COINMARKETCAP_API_KEY } = process.env || "";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -35,9 +39,19 @@ module.exports = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200,
+        runs: 1000,
       },
     },
+  },
+  etherscan: {
+    apiKey: POLYSCAN_API_KEY,
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "USD",
+    outputFile: "gas-report.txt",
+    noColors: true,
+    coinmarketcap: COINMARKETCAP_API_KEY,
   },
   paths: {
     artifacts: "./artifacts",

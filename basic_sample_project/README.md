@@ -15,7 +15,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 3. deploy contracts
 
-    `npx hardhat run scripts/event-log-script.js`
+    `npx hardhat run scripts/event-log-script.js --network polygon`
 
 4. deploy and verify contract 
 
@@ -27,7 +27,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 6. test coverage
 
-    `npx hardhat coverage --network polygon`
+    `npx hardhat coverage --testfiles "test/*.js"`
 
 7. estimate gas output saved to file gas-report.txt
 

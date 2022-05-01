@@ -24,7 +24,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "polygon",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
     polygon: {
@@ -32,6 +32,7 @@ module.exports = {
       accounts: [`0x${PRIVATE_KEY}`],
       timeout: 20000,
       network_id: 80001,
+      saveDeployments: true,
     },
   },
   solidity: {
@@ -44,7 +45,9 @@ module.exports = {
     },
   },
   etherscan: {
-    apiKey: POLYSCAN_API_KEY,
+    apiKey: {
+      polygon: POLYSCAN_API_KEY,
+    },
   },
   gasReporter: {
     enabled: true,
@@ -55,5 +58,11 @@ module.exports = {
   },
   paths: {
     artifacts: "./artifacts",
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
   },
+  mocha: {
+    timeout: 40000
+  }
 };

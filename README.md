@@ -34,11 +34,21 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
     `npx hardhat test --network polygon`
 
 
-npx eslint '**/*.js'
-npx eslint '**/*.js' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-REPORT_GAS=true npx hardhat test
+
+
+
+- lint cmds
+
+    `npx solhint 'contracts/**/*.sol' `
+
+    `npx solhint 'contracts/**/*.sol' --fix`
+
+    `npx eslint '**/*.js'`
+
+    `npx eslint '**/*.js' --fix`
+
+    `npx prettier '**/*.{json,sol,md}' --check`
+
+    `npx prettier '**/*.{json,sol,md}' --write`
+
 

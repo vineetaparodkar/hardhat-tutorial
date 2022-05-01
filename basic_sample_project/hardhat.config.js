@@ -5,7 +5,7 @@ require("hardhat-gas-reporter");
 require('solidity-coverage');
 require("hardhat-deploy")
 
-const { PRIVATE_KEY, POLYGON_TESTNET_URL, POLYSCAN_API_KEY, COINMARKETCAP_API_KEY } = process.env || "";
+const { PRIVATE_KEY, POLYGON_TESTNET_URL, POLYSCAN_API_KEY, COINMARKETCAP_API_KEY,REPORT_GAS } = process.env || "";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -50,7 +50,7 @@ module.exports = {
     },
   },
   gasReporter: {
-    enabled: true,
+    enabled: REPORT_GAS !== undefined,
     currency: "USD",
     outputFile: "gas-report.txt",
     noColors: true,

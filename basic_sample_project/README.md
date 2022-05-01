@@ -31,7 +31,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 7. estimate gas output saved to file gas-report.txt
 
-    `npx hardhat test`
+    `npx hardhat test --network polygon`
 
 
 

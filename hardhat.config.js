@@ -2,8 +2,8 @@ require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 require("hardhat-gas-reporter");
-require('solidity-coverage');
-require("hardhat-deploy")
+require("solidity-coverage");
+require("hardhat-deploy");
 
 const { PRIVATE_KEY, POLYGON_TESTNET_URL, POLYSCAN_API_KEY, COINMARKETCAP_API_KEY,REPORT_GAS } = process.env || "";
 
@@ -63,6 +63,6 @@ module.exports = {
     cache: "./cache",
   },
   mocha: {
-    timeout: 40000
-  }
+    timeout: 40000,
+  },
 };

@@ -33,7 +33,15 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
     `npx hardhat test --network polygon`
 
+8. contract sizer
 
+    `npx hardhat size-contracts`
+
+9. parallel test
+
+    `npx hardhat test --parallel`
+
+Note: gas-reporting does not support parallel test
 
 
 

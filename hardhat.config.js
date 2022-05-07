@@ -1,11 +1,18 @@
 require("@nomiclabs/hardhat-waffle");
-require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 require("hardhat-gas-reporter");
 require("solidity-coverage");
 require("hardhat-deploy");
+require("hardhat-contract-sizer");
 
-const { PRIVATE_KEY, POLYGON_TESTNET_URL, POLYSCAN_API_KEY, COINMARKETCAP_API_KEY,REPORT_GAS } = process.env || "";
+require("dotenv").config();
+const {
+  PRIVATE_KEY,
+  POLYGON_TESTNET_URL,
+  POLYSCAN_API_KEY,
+  COINMARKETCAP_API_KEY,
+  REPORT_GAS,
+} = process.env || "";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -61,6 +68,10 @@ module.exports = {
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
+  },
+  contractSizer: {
+    runOnCompile: false,
+    only: ["Greeter"],
   },
   mocha: {
     timeout: 40000,
